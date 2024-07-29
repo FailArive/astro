@@ -1,0 +1,22 @@
+---
+import { Icon } from 'astro-icon/components'
+
+export interface Props {
+    icon: string;
+    title: string;
+    url: string;
+    target?: string;
+   
+}
+
+const { title, icon, url, target = "_blank"} = Astro.props;
+---
+
+<a href={url} target = {target} class="relative group">
+    <Icon 
+        name={icon} 
+        title={title}
+        width={28} 
+        height={28} 
+        class=" relative top-0 group-hover:-top-1 transition-[top] ease duration-300"/>
+</a>
