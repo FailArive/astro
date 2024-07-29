@@ -1,5 +1,7 @@
 ---
+import { InvalidContentEntryFrontmatterError } from "../../../../packages/astro/dist/core/errors/errors-data";
 import NavigationLinks from "../components/NavigationLinks.astro";
+import { Icon } from 'astro-icon/components'
 const { content } = Astro.props;
 ---
 
@@ -17,7 +19,9 @@ const { content } = Astro.props;
 					<NavigationLinks />
 					
 				</nav>
-				<nav></nav>
+				<nav>
+					<Icon name="mdi:home" />
+				</nav>
 			</header>
 			<article>
 				<slot />
