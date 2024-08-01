@@ -10,18 +10,26 @@ const { content } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>TRVL Website</title>
+		<style>
+			header {
+				background-color: rgba(2, 10, 22, 0.938);
+				color: white ;
+				padding: 20px;
+				height: 4rem;
+			}
+		</style>
 	</head>
-	<body class="font-mono pt-30 bg-light dark:bg-gray-800">
+	<body class="font-mono pt-30 bg-light dark:bg-gray-800" style="min-height: 100vh;">
+		<header class="flex items-center sticky top-0 justify-between shadow-lg dark:border-gray-800 border px-4 py-4 font-medium">
+			<nav class="flex items-center justify-center gap-x-16 w-full text-2xl text-dark dark:text-light">
+				<NavigationLinks />
+			</nav>
+			<nav class="flex items-center justify-center gap-x-5">
+				<NavigationSocialBar />
+			</nav>
+		</header>
 		<main class="md:container md:mx-auto w-full min-h-screen">
-			<header class="flex items-center rounded-full justify-between shadow-lg dark:border-gray-600 border px-4 py-4 font-medium bg-light dark:bg-gray-700" style="height: 4rem; ">
-				<nav class="flex items-center justify-center w-full gap-x-16 text-2xl text-dark dark:text-light">
-					<NavigationLinks />
-					
-				</nav>
-				<nav class="flex items-center justify-center gap-x-5">
-					<NavigationSocialBar />
-				</nav>
-			</header>
+			
 			<article>
 				<slot />
 			</article>
