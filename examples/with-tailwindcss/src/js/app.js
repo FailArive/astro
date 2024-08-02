@@ -1,3 +1,5 @@
+
+//für DarkMode
 class PageHandler{
     constructor(){
         if(localStorage.getItem("theme") == "dark"){
