@@ -22,6 +22,8 @@ body {
     min-height: 100vh;
 }
 
+
+
 .cards{
     display: flex;
     flex-wrap: wrap;
@@ -35,15 +37,15 @@ body {
         .card {
             background: radial-gradient(
                 100rem circle at var(--xpos) var(--ypos),
-                rgb(28, 168, 161), 
+                rgb(124, 28, 168), 
                 transparent 15%
             ); 
         }
     }
     
     .card{
-        width: 30rem;
-        height: 20rem;
+        width: 50rem;
+        height: 30rem;
         background: radial-gradient(
             150rem circle at 0 0,
             rgba(14, 67, 88, 0), 
@@ -55,6 +57,8 @@ body {
         align-items: center; 
         position: relative;
         transition: all 0.15;
+        
+
         &:hover{
             transform: scale(0.97);
             &::before{
@@ -91,9 +95,9 @@ body {
 .dark .cards{
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     gap: 0.5rem;
     width: 100%;
     padding: 2rem;
@@ -101,18 +105,18 @@ body {
         .card {
             background: radial-gradient(
                 150rem circle at var(--xpos) var(--ypos),
-                rgba(72, 140, 167, 0.5), 
+                rgba(236, 111, 205, 0.904), 
                 transparent 15%
             ); 
         }
     }
     
     .card{
-        width: 30rem;
-        height: 20rem;
+        width: 50rem;
+        height: 40rem;
         background: radial-gradient(
             150rem circle at 0 0,
-            rgba(14, 67, 88, 0), 
+            rgba(14, 21, 88, 0), 
             transparent 0%
         );
         border-radius: 0.5rem;
@@ -136,8 +140,8 @@ body {
             left: 0;
             border-radius: inherit;
             background: radial-gradient(
-                60rem circle at var(--xpos) var(--ypos),
-                rgba(72, 140, 167, 0.1), 
+                100rem circle at var(--xpos) var(--ypos),
+                rgba(167, 72, 127, 0.212), 
                 transparent 35%
             );
             opacity: 0;
@@ -146,20 +150,43 @@ body {
         .card-content {
             background-color: #13161c;
             border-radius: inherit;
+            font-size: x-large;
+            
             transition: all 0.25s;
             height: calc(100% - 0.1rem);
             width: calc(100% - 0.1rem);
+        }
+        &:nth-child(odd) {
+            align-self: flex-start; 
+            justify-self: left;/* Ungerade Karten links ausrichten */
+            margin-left: -7rem; /* Sicherstellen, dass keine zusätzliche Margen auf der linken Seite vorhanden ist */
+            margin-right: auto;
+        }
+
+        &:nth-child(even) {
+            align-self: flex-end;
+            justify-self: right; /* Gerade Karten rechts ausrichten */
+            margin-left: auto; /* Den restlichen Platz links füllen */
+            margin-right: -7rem; /* Align even cards to the right */
         }
     }
 }
 
 
 
-.hidden{
+.hidden-left{
     opacity: 0;
     filter: blur(5px);
     transform: translateX(-100%);
-    transition: all 1s;
+    transition: all 1s ease-in-out;
+    
+}
+
+.hidden-right{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(100%);
+    transition: all 1s ease-in-out;
 }
 
 .show {
