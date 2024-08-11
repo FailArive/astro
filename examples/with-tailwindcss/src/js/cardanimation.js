@@ -15,3 +15,8 @@ const hiddenElementsLeft = document.querySelectorAll('.hidden-left');
 hiddenElementsLeft.forEach((el) =>  observer.observe(el));
 const hiddenElementsRight = document.querySelectorAll('.hidden-right');
 hiddenElementsRight.forEach((el) =>  observer.observe(el));
+const hiddenElementsTop = document.querySelectorAll('.hidden-top');
+hiddenElementsTop.forEach((el) =>  observer.observe(el));
+const hiddenElementsBottom = document.querySelectorAll('.hidden-bottom');
+hiddenElementsBottom.forEach((el) =>  observer.observe(el));
+

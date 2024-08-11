@@ -1,11 +1,5 @@
-header {
-    background-color: rgba(242, 245, 248, 0.938);
-    padding: 20px;
-    height: 4rem;
-    
-}
 
-.dark header {
+header {
     background-color: rgba(2, 10, 22, 0.938);
     padding: 20px;
     height: 4rem;
@@ -13,11 +7,6 @@ header {
 }
 
 body {
-    background-color: rgba(242, 245, 248, 1);
-    min-height: 100vh;
-}
-
-.dark body {
     background-color: rgba(2, 10, 22, 1);
     min-height: 100vh;
 }
@@ -25,78 +14,11 @@ body {
 h2{
     position: relative;
     padding-top: 5rem;
+    padding-bottom: 3rem;
     
 }
 
 .cards{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    width: 100%;
-    padding: 2rem;
-    &:hover{
-        .card {
-            background: radial-gradient(
-                100rem circle at var(--xpos) var(--ypos),
-                rgb(124, 28, 168), 
-                transparent 15%
-            ); 
-        }
-    }
-    
-    .card{
-        width: 50rem;
-        height: 30rem;
-        background: radial-gradient(
-            150rem circle at 0 0,
-            rgba(14, 67, 88, 0), 
-            transparent 0%
-        );
-        border-radius: 0.5rem;
-        display: flex;
-        justify-content: center;
-        align-items: center; 
-        position: relative;
-        transition: all 0.15;
-        
-
-        &:hover{
-            transform: scale(0.97);
-            &::before{
-                opacity: 1;
-            }
-        }
-        &::before{
-            content: "";
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            border-radius: inherit;
-            background: radial-gradient(
-                60rem circle at var(--xpos) var(--ypos),
-                rgba(72, 140, 167, 0.1), 
-                transparent 15%
-            );
-            opacity: 0;
-            transition: all 0.15s ease-in-out;
-        }       
-        .card-content {
-            background-color: #c6c8cc;
-            border-radius: inherit;
-            transition: all 0.25s;
-            height: calc(100% - 0.1rem);
-            width: calc(100% - 0.1rem);
-        }
-    }
-}
-
-
-.dark .cards{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -162,16 +84,16 @@ h2{
         }
         &:nth-child(odd) {
             align-self: flex-start; 
-            justify-self: left;/* Ungerade Karten links ausrichten */
-            margin-left: -7rem; /* Sicherstellen, dass keine zusätzliche Margen auf der linken Seite vorhanden ist */
+            justify-self: left;
+            margin-left: -7rem; 
             margin-right: auto;
         }
 
         &:nth-child(even) {
             align-self: flex-end;
-            justify-self: right; /* Gerade Karten rechts ausrichten */
-            margin-left: auto; /* Den restlichen Platz links füllen */
-            margin-right: -7rem; /* Align even cards to the right */
+            justify-self: right; 
+            margin-left: auto; 
+            margin-right: -7rem; 
         }
     }
 }
@@ -193,9 +115,85 @@ h2{
     transition: all 1.5s ease-in-out;
 }
 
+.hidden-top{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(-50px);
+    transition: all 1.5s ease-in-out;
+}
+
+.hidden-bottom{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(50px);
+    transition: all 1.5s ease-in-out;
+}
+
 .show {
     opacity: 1;
     filter: blur(0);
     transform: translateX(0);
 }
 
+.IconBar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #13161c;
+    align-items: center;
+    border-radius: 100px;
+    position: relative;
+
+    .Icon{
+        &:hover{
+            transform: scale(0.9);
+            transition: 300ms ease-in-out;
+            &::before{
+                opacity: 1;
+            }
+        }
+        
+    }
+    
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.IconBar::after, .IconBar::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    
+    background-image: conic-gradient(from var(--angle), rgb(236, 111, 205), rgb(119, 229, 233), rgb(236, 111, 205));
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 43px;
+    padding-left: 1500px;
+    border-radius: 100px;
+    animation: 3s spin linear infinite paused;
+    
+}
+.IconBar:hover::after, .IconBar:hover::before{
+    animation-play-state: running;
+}
+
+.IconBar::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+    
+}
+@keyframes spin {
+    from{
+        --angle:0deg;
+    }
+    to{
+        --angle:360deg;
+    }
+}
