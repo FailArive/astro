@@ -1,22 +1,20 @@
 ---
-import { Icon } from 'astro-icon/components'
+
 
 export interface Props {
-    icon: string;
-    title: string;
+    alt: string;
+    src:string;
     url: string;
     target?: string;
    
 }
 
-const { title, icon, url, target = "_blank"} = Astro.props;
+const {alt, src, url, target = "_blank"} = Astro.props;
 ---
 
 <a href={url} target = {target} class="relative group">
-    <Icon 
-        name={icon} 
-        title={title}
-        width={28} 
-        height={28} 
-        class=" relative top-0 group-hover:-top-1 transition-[top] ease duration-300"/>
+    <img 
+        alt={alt}
+        src=src
+        class=" relative w-6 h-6 top-0 group-hover:-top-1 transition-[top] ease duration-300"/>
 </a>

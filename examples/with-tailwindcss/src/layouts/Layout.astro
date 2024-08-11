@@ -1,6 +1,7 @@
 ---
 import NavigationLinks from "../components/NavigationLinks.astro";
 import NavigationSocialBar from "../components/NavigationSocialBar.astro";
+import DarkMode from "../components/DarkMode.astro";
 const { content } = Astro.props;
 ---
 
@@ -19,7 +20,7 @@ const { content } = Astro.props;
 				<NavigationLinks />
 			</nav>
 			<nav class="flex items-center justify-center gap-x-5">
-				<NavigationSocialBar />
+				<DarkMode />
 			</nav>
 		</header>
 		<main class="md:container md:mx-auto w-full min-h-screen">
