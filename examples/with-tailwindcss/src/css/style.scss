@@ -68,8 +68,7 @@ h3{
     gap: 12rem;
     width: 100%;
     padding: 2rem;
-    transition: 1.5s ease-out;
-    transform: translateX(-200%);
+    
     
     &:hover{
         .card {
@@ -146,10 +145,7 @@ h3{
 
     }
 }
-.cards.show{
-    transform: translateX(0);
-    
-}
+
 
 
 .IconBar{
