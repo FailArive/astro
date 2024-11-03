@@ -1,16 +1,99 @@
+:root {
+    --header-color: rgba(2, 10, 22, 0.938);
+    --body-color: rgba(2, 10, 22, 1);
+    --primary-color: rgb(236, 111, 205);
+    --secondary-color: rgb(119, 229, 233);
+    --gradient-color: linear-gradient(45deg, rgb(236, 111, 205), rgb(119, 229, 233));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 
 header {
-    background-color: rgba(2, 10, 22, 0.938);
-    padding: 20px;
-    width: 100%;
-    height: 4rem;
+    background-color: var(--header-color);
     
+    width: 100%;
+    max-width: 100%;
+    height: 8vh;
+
 }
 
-body {
-    background-color: rgba(2, 10, 22, 1);
-    min-height: 100vh;
+.circle1{
+   position: absolute;
+   top: 5%;
+   right: -15%;
+   width: 20%; 
+   height: 70%;
+   border-radius: 50%;
+   background: var(--secondary-color);
+   filter: blur(300px);
+   
+   opacity: 1;
 }
+
+.circle2{
+    position: absolute;
+    bottom: 0%;
+    left: -15%;
+    width: 20%; 
+    height: 70%;
+    border-radius: 50%;
+    background: var(--primary-color);
+    filter: blur(300px);
+    opacity: 1;
+ }
+
+body {
+    
+    background-color: var(--body-color);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    font-family: 'outfit';
+    overflow-x: hidden;
+}
+
+h1{
+    position: relative; 
+    width: 100%;
+    margin-top: calc(50vh - 4vh - 2rem);
+    text-align: center;
+    font-size: 5rem;
+    color: #fff;
+    
+    animation: appearF 1s ease;
+    text-shadow: 0 0 10px rgba(236, 111, 205, 0.1), 
+                
+                 0 0 40px rgba(119, 229, 233, 0.6);
+    
+}
+h1 span{
+    color: transparent;
+    background-image: var(--gradient-color);
+    
+    -webkit-background-clip: text;
+}
+
+@keyframes appearF {
+    from{
+        transform: translateZ(-100%);
+        opacity: 0;
+        filter:blur(300px)
+        
+    }
+    to{
+        opacity: 1;
+        transform: translateZ(0);
+        filter: blur(0px);
+    }
+}
+
 
 h2{
     
@@ -39,13 +122,13 @@ h3{
     padding-top: 2rem;
     padding-bottom: 56.25%;
     height: 0;
-    transform: translateX(-100%);
+    opacity: 0;
     transition: 1s ease-out;
-    animation-range: entry 0% cover 60%;
+    animation-range: entry 0% cover 40%;
 }
 
 .latestvideo.show {
-    transform: translateX(0);
+    opacity: 1;
 }
 
 .latestvideo iframe{
@@ -67,24 +150,34 @@ h3{
     align-items: flex-start;
     gap: 12rem;
     width: 100%;
-    padding: 2rem;
-    
+    margin-top: 50vh;
     
     &:hover{
         .card {
-            background: radial-gradient(
-                150rem circle at var(--xpos) var(--ypos),
-                rgba(236, 111, 205, 0.904), 
-                transparent 15%
-            ); 
+            //&:nth-child(odd){
+                background: radial-gradient(
+                    150rem circle at var(--xpos) var(--ypos),
+                    rgba(236, 111, 205, 0.904), 
+                    transparent 15%
+                ); 
+            /*}
+            &:nth-child(even){
+                background: radial-gradient(
+                    150rem circle at var(--xpos) var(--ypos),
+                    rgba(119, 229, 233, 0.904), 
+                    transparent 15%
+                ); 
+            }*/
+            
         }
     }
     
     .card{
-        width: 50rem;
-        height: 40rem;
+        width: 55%;
+        height: 75vh;
         aspect-ratio: 1/1;
         flex-grow: 1;
+        
         background: radial-gradient(
             150rem circle at 0 0,
             rgba(14, 21, 88, 0), 
@@ -111,13 +204,15 @@ h3{
             top: 0;
             left: 0;
             border-radius: inherit;
+            
             background: radial-gradient(
                 100rem circle at var(--xpos) var(--ypos),
-                rgba(167, 72, 127, 0.212), 
+                rgba(212, 74, 155, 0.212), 
                 transparent 35%
             );
             opacity: 0;
             transition: all 0.15s ease-in-out;
+   
         }       
         .card-content {
             background-color: #13161c;
@@ -131,7 +226,7 @@ h3{
         &:nth-child(odd) {
             align-self: flex-start; 
             justify-self: left;
-            margin-left: -7rem; 
+            margin-left: -7%; 
             margin-right: auto;
 
         }
@@ -140,13 +235,34 @@ h3{
             align-self: flex-end;
             justify-self: right; 
             margin-left: auto; 
-            margin-right: -7rem; 
+            margin-right: -7%; 
         }
 
     }
 }
 
+.hidden_left {
+    opacity: 0;
+    transform: translateX(-20%);
+    transition: 1s ease-out;
+    animation-range: entry 0% cover 60%;
+}
 
+.hidden_left.show {
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+.hidden_right {
+    opacity: 0;
+    transform: translateX(20%);
+    transition: 1s ease-out;
+    animation-range: entry 0% cover 100%;
+}
+.hidden_right.show {
+    opacity: 1;
+    transform: translateX(0%);
+}
 
 .IconBar{
     display: flex;
@@ -182,7 +298,7 @@ h3{
     height: 100%;
     width: 100%;
     
-    background-image: conic-gradient(from var(--angle), rgb(236, 111, 205), rgb(119, 229, 233), rgb(236, 111, 205));
+    background-image: conic-gradient(from var(--angle), var(--primary-color), var(--secondary-color), var(--primary-color));
     top: 50%;
     left: 50%;
     translate: -50% -50%;
