@@ -26,10 +26,12 @@ header {
 }
 
 .navbartextfarbe{
-    background-color: #fff;
-    &:hover{
-        background-image: var(--gradient-color);
-    }
+    background-image: var(--gradient-color);
+    
+    
+    // &:hover {
+    //     background-image: var(--gradient-color); // Gradient statt Weiß
+    // }
 }
 
 
