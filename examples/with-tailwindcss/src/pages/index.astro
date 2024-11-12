@@ -1,20 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import Cards from "../components/Cards.astro"
+
 import NavigationSocialBar from "../components/NavigationSocialBar.astro"
 ---
 
 <Layout title="Homepage">
-	<div class="circle1"></div>
-	<div class="circle2"></div>
-	<h1><span>TRVLMusic</span></h1>
-	<Cards/>
-	<h4>Moin</h4>
+
+	
+	<div class="left-container">
+		<h1><span>TRVLMusic</span></h1>
+		<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio explicabo incidunt culpa corporis quo voluptatibus necessitatibus ex nobis blanditiis ipsa.</p>
+	</div>
+	<div class="right-container"></div>
+	
+	
 	<h2 class="text-4xl text-center text-light">My Socials</h2>
 	<NavigationSocialBar/>
-	<h3 class=" text-4xl text-left text-light">Latest YouTube Video:</h3>
-	<div class="latestvideo shadow-lg">
+
+	<!-- <div class="latestvideo shadow-lg">
 		<iframe src="https://www.youtube.com/embed?listType=playlist&list=UU-Z2gJDc318-R6dpjfgorVg"></iframe> 
-	</div>
+	</div> -->
 	<script src="../js/cardanimation.js"></script>
 </Layout>

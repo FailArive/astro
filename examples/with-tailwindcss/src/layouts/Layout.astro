@@ -1,22 +1,22 @@
 ---
-import NavigationLinks from "../components/NavigationLinks.astro";
+import NavigationLink from "../components/NavigationLink.astro";
 const { content } = Astro.props;
 ---
 
 <html lang="en" >
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0;" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="stylesheet" href="/src/css/style.scss">
 		<title>TRVL Website</title>
 
 	</head>
-	<body class="font-mono pt-30" >
-		
-		<header class="flex items-center top-0 justify-between shadow-lg  font-medium ">
-			<nav class="flex items-center justify-center gap-x-16 w-full text-2xl text-light">
-				<NavigationLinks />
+	<body class="font-mono pt-30" >		
+		<header class="flex items-center top-0 justify-between shadow-lg">
+			
+			<nav class="flex justify-center  w-full">
+				<NavigationLink />
 			</nav>
 			<div class="scroll_watcher"></div>
 		</header>
@@ -28,4 +28,17 @@ const { content } = Astro.props;
 		</main>
 		
 	</body>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+		const navLinks = document.querySelectorAll(".navbartextfarbe");
+		const currentPath = window.location.pathname;
+
+		navLinks.forEach(link => {
+			if (link.getAttribute("href") === currentPath) {
+				link.classList.add("active");
+			}
+			});
+		});
+	</script>
+	
 </html>
