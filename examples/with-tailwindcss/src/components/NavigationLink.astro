@@ -1,13 +1,18 @@
 
-<ul class="sidebar">
-    <li><a href="/" class="navbartextfarbe">Home</a></li>
-    <li><a href="/Shop" class="navbartextfarbe">Shop</a></li>
-    <li><a href="/Contact" class="navbartextfarbe">Contact</a></li>
-</ul>
 
-<ul>
-    <li><a href="/" class="navbartextfarbe">Home</a></li>
-    <li><a href="/Shop" class="navbartextfarbe">Shop</a></li>
-    <li><a href="/Contact" class="navbartextfarbe">Contact</a></li>
-    <li onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="white" d="M3 18v-2h18v2zm0-5v-2h18v2zm0-5V6h18v2z"/></svg></a></li>
-</ul>
+    <input type="checkbox" id="sidebar-active">
+    <label for="sidebar-active" class="open-sidebar-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24"><path fill="white" d="M3 18v-2h18v2zm0-5v-2h18v2zm0-5V6h18v2z"/></svg>
+    </label>
+
+
+    <label id="overlay" for="sidebar-active"></label>
+    <div class="links-container">
+        <label for="sidebar-active" class="close-sidebar-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24"><path fill="white" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z"/></svg>
+        </label>
+        <a href="/" class="navbartextfarbe">Home</a>
+        <a href="/Shop" class="navbartextfarbe">Shop</a>
+        <a href="/Contact" class="navbartextfarbe">Contact</a>
+    </div>
+
