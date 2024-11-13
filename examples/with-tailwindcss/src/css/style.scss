@@ -204,6 +204,7 @@ h2{
     margin-inline: auto;
     margin-top: 1rem;
     overflow: hidden;
+    z-index: 1;
     .Icon{
 
         &:hover{
@@ -272,15 +273,16 @@ h2{
     background-image: conic-gradient(from var(--angle), var(--primary-color), var(--secondary-color), var(--primary-color));
     border-radius: 50px;
     padding: 10px 10px;
+    z-index: -1;
     
-    
-    transform: scale(1.005, 1.1);
+    transform: scale(1.005, 1.08);
     //filter: blur(0.1rem);
-    animation: 3s spin linear infinite;  
-    //animation-play-state: paused;
+    animation: 3s spin linear infinite; 
+    animation-play-state: paused; 
+    
 }
 
-.IconBar:hover .IconBarBackground{
+.wrapper:hover .IconBarBackground{
     animation-play-state: running;
 }
 
