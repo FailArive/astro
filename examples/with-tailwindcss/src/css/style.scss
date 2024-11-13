@@ -47,7 +47,7 @@ header {
 }
 
 .content-container {
-    overflow-x: hidden;
+    //overflow-x: hidden;
     width: 100%;
 }
 
@@ -194,17 +194,18 @@ h2{
 
 
 
-
 .IconBar{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     background-color: #13161c;
-    align-items: center;
-    border-radius: 100px;
+    border-radius: 50px;
     position: relative;
-    
+    width: 100%;
+    height: 80px;
+    max-width: 1536px;
+    margin-inline: auto;
+    margin-top: 1rem;
+    overflow: hidden;
     .Icon{
+
         &:hover{
             transform: scale(0.9);
             transition: 300ms ease-in-out;
@@ -214,6 +215,11 @@ h2{
         }
         
     }
+
+    &:hover .item {
+        animation-play-state: paused;
+    }
+
     
 }
 @property --angle{
@@ -222,34 +228,77 @@ h2{
     inherits: false;
 }
 
-.IconBar::after, .IconBar::before{
-    content: '';
+.item{
+    width: 200px;
+    height: 80px;
     position: absolute;
-    height: 100%;
-    width: 100%;
-    
-    background-image: conic-gradient(from var(--angle), var(--primary-color), var(--secondary-color), var(--primary-color));
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    z-index: -1;
-    padding: 43px;
-    padding-left: 1500px;
-    border-radius: 100px;
-    
-    animation: 3s spin linear infinite paused;
-    
-}
-.IconBar:hover::after, .IconBar:hover::before{
+    left: max(calc(200px * 7), 100%);
+    animation: 30s scrollLeft linear infinite;
     animation-play-state: running;
 }
 
-.IconBar::before{
-    filter: blur(1.5rem);
-    opacity: 0.5;
-    
+.item1{
+    animation-delay: calc(30s / 7 * (7 - 1) * -1);
+}
+.item2{
+    animation-delay: calc(30s / 7 * (7 - 2) * -1);
+}
+.item3{
+    animation-delay: calc(30s / 7 * (7 - 3) * -1);
+}
+.item4{
+    animation-delay: calc(30s / 7 * (7 - 4) * -1);
+}
+.item5{
+    animation-delay: calc(30s / 7 * (7 - 5) * -1);
+}
+.item6{
+    animation-delay: calc(30s / 7 * (7 - 6) * -1);
+}
+.item7{
+    animation-delay: calc(30s / 7 * (7 - 7) * -1);
 }
 
+.wrapper{
+    position: relative;
+    width: 100%;
+    max-width: 1536px;
+    height: 80px;
+}
+
+.IconBarBackground {
+    position: absolute;
+    inset: 0;
+    background-image: conic-gradient(from var(--angle), var(--primary-color), var(--secondary-color), var(--primary-color));
+    border-radius: 50px;
+    padding: 10px 10px;
+    
+    
+    transform: scale(1.005, 1.1);
+    //filter: blur(0.1rem);
+    animation: 3s spin linear infinite;  
+    //animation-play-state: paused;
+}
+
+.IconBar:hover .IconBarBackground{
+    animation-play-state: running;
+}
+
+
+@keyframes scrollLeft {
+    to{
+        left: -200px;
+    }
+}
+
+@keyframes spin {
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
 
 @media(max-width: 756px){
     .links-container{
