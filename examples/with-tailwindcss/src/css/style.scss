@@ -126,12 +126,11 @@ nav svg{
     cursor: pointer;
 }
 
+
 .navbartextfarbe:hover,
 .navbartextfarbe.active { 
     color: var(--body-color);
-    background: var(--gradient-color);
-    // color: #fff;
-    // background: var(--header-color);
+    background: var(--gradient-color); 
     box-shadow: -5px 5px 20px rgba(255, 121, 221, 0.87), 
                 5px -5px 20px rgba(118, 250, 255, 0.911);
 }
@@ -238,6 +237,18 @@ h2{
     animation-play-state: running;
 }
 
+.itemna{
+    height: 80px;
+    justify-content: center; /* Zentriere die Icons horizontal */
+    align-items: center;
+    position: absolute;
+    display: none;
+    animation: 30s scrollIconsna ease-out infinite;
+}
+
+
+
+
 .item1{
     animation-delay: calc(30s / 7 * (7 - 1) * -1);
 }
@@ -259,6 +270,29 @@ h2{
 .item7{
     animation-delay: calc(30s / 7 * (7 - 7) * -1);
 }
+
+.itemna1{
+    left: 0%;
+}
+.itemna2{
+    left: 100%;
+}
+.itemna3{
+    left: 200%;
+}
+.itemna4{
+    left: 300%;
+}
+.itemna5{
+    left: 400%;
+}
+.itemna6{
+    left: 500%;
+}
+.itemna7{
+    left: 600%;
+}
+
 
 .wrapper{
     position: relative;
@@ -286,11 +320,98 @@ h2{
     animation-play-state: running;
 }
 
+.wrapper .arrow{
+    position: absolute;
+    border-radius: 50%;
+    text-align: center;
+    justify-items: center;
+    width: 80px;
+    height: 80px;
+    background-color: #13161c;
+    align-items: center;
+    cursor: pointer;
+    z-index: 100;
+    border: 2px solid #2b2f36; // Randfarbe
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    display: none;
+    transition: 300ms ease-in-out;
+    &:hover{
+            &::before{
+                opacity: 1;
+            }
+    }
+}
+
+.wrapper .arrowleft{
+    transform: rotate(180deg);
+    left:0px;
+    top: 0;
+    &:hover{
+        transform: scale(0.9) rotate(180deg);
+    }
+}
+
+.wrapper .arrowright{
+    right:0px;
+    &:hover{
+        transform: scale(0.9) ;
+    }
+}
 
 @keyframes scrollLeft {
     to{
         left: -200px;
     }
+}
+
+@keyframes scrollLeftclick {
+    to{
+        left: -100%;
+    }
+}
+
+@keyframes scrollRightclick {
+    to{
+        left: 100%;
+    }
+}
+
+@keyframes scrollIconsna {
+    0% { transform: translateX(0%); opacity:0;}
+    0.5% { transform: translateX(0%); opacity:1;}/* Zeige itemna1 */
+    14.2% { transform: translateX(0%); }
+    14.23% { transform: translateX(-30%); }
+    14.25% { transform: translateX(-50%); }
+    14.28% { transform: translateX(-80%); }
+    14.30% { transform: translateX(-100%); } /* Wechsel zu itemna2 */
+    28.50% { transform: translateX(-100%); }
+    28.53% { transform: translateX(-130%); }
+    28.55% { transform: translateX(-150%); }
+    28.58% { transform: translateX(-180%); }
+    28.59% { transform: translateX(-200%); } /* Wechsel zu itemna3 */
+    42.80% { transform: translateX(-200%); }
+    42.82% { transform: translateX(-230%); }
+    42.84% { transform: translateX(-250%); }
+    42.86% { transform: translateX(-280%); }
+    42.88% { transform: translateX(-300%); } /* Wechsel zu itemna4 */
+    57.10% { transform: translateX(-300%); }
+    57.12% { transform: translateX(-330%); }
+    57.14% { transform: translateX(-350%); }
+    57.16% { transform: translateX(-380%); }
+    57.17% { transform: translateX(-400%); } /* Wechsel zu itemna5 */
+    71.40% { transform: translateX(-400%); }
+    71.42% { transform: translateX(-430%); }
+    71.44% { transform: translateX(-450%); }
+    71.46% { transform: translateX(-480%); }
+    71.48% { transform: translateX(-500%); } /* Wechsel zu itemna6 */
+    85.70% { transform: translateX(-500%); }
+    85.72% { transform: translateX(-530%); }
+    85.74% { transform: translateX(-550%); }
+    85.76% { transform: translateX(-580%); }
+    85.78% { transform: translateX(-600%); }
+    99%{transform: translateX(-600%); }  
+    99.95%{transform: translateX(-600%); opacity:1;} /* Wechsel zu itemna7 */
+    100% { transform: translateX(-700%); opacity: 0;}
 }
 
 @keyframes spin {
@@ -360,4 +481,24 @@ h2{
     .left-container h1{
         justify-items: center;
     }
+
+    .wrapper .arrow{
+        display: flex;
+    }
+
+
+    .item{
+        display: none;
+    }
+
+    .itemna{
+        display: flex;
+        
+    }
+
+    .wrapper .arrow {
+        display: flex; // Pfeile anzeigen
+    }
+
+
 }
