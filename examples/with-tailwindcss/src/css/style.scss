@@ -14,10 +14,6 @@
     
 }
 
-// html, body{
-//     overflow-x: hidden;
-// } 
-
 
 body {
     
@@ -158,6 +154,8 @@ nav svg{
     transition: opacity 1s ease, visibility 1s ease, transform 1s ease;
 }
 
+
+
 .scroll_watcher{
     height: 3px;
     position: absolute;
@@ -200,6 +198,9 @@ h2{
     width: 100%;
     height: 80px;
     max-width: 1536px;
+    display: flex;
+    justify-content: center; /* Zentrierung horizontal */
+    align-items: center;
     margin-inline: auto;
     margin-top: 1rem;
     overflow: hidden;
@@ -228,6 +229,8 @@ h2{
     inherits: false;
 }
 
+
+
 .item{
     width: 200px;
     height: 80px;
@@ -236,18 +239,6 @@ h2{
     animation: 30s scrollLeft linear infinite;
     animation-play-state: running;
 }
-
-.itemna{
-    height: 80px;
-    justify-content: center; /* Zentriere die Icons horizontal */
-    align-items: center;
-    position: absolute;
-    display: none;
-    animation: 30s scrollIconsna ease-out infinite;
-}
-
-
-
 
 .item1{
     animation-delay: calc(30s / 7 * (7 - 1) * -1);
@@ -271,27 +262,7 @@ h2{
     animation-delay: calc(30s / 7 * (7 - 7) * -1);
 }
 
-.itemna1{
-    left: 0%;
-}
-.itemna2{
-    left: 100%;
-}
-.itemna3{
-    left: 200%;
-}
-.itemna4{
-    left: 300%;
-}
-.itemna5{
-    left: 400%;
-}
-.itemna6{
-    left: 500%;
-}
-.itemna7{
-    left: 600%;
-}
+
 
 
 .wrapper{
@@ -320,98 +291,61 @@ h2{
     animation-play-state: running;
 }
 
-.wrapper .arrow{
-    position: absolute;
-    border-radius: 50%;
-    text-align: center;
+.IconBar .swcontainer{
+    display: none;
+}
+
+.IconBar .swcontainer .slider-wrapper .icon-list{
+    display: flex;
     justify-items: center;
+    align-items: center;
+}
+
+.IconBar .swcontainer .slider-wrapper .icon-list .icon-item {
+
+    display: flex;
+    justify-content: center; /* Zentriert den Inhalt des Items */
+    align-items: center;
+}
+
+.IconBar .swcontainer .slider-wrapper .icon-list .icon-item a{
+    justify-content: center;
+}
+
+
+.slider-wrapper .swiper-slider-button{
+    color: #fff;
+    top: auto;
+    bottom: 0;
+    right: 0;
     width: 80px;
     height: 80px;
     background-color: #13161c;
+    border: 3px solid #30343a;
+    border-radius: 50%;
+    transition: 0.2s ease;
+}
+
+.slider-wrapper .swiper-slider-button:hover {
+    background-color: #5e636b;
+    transform: scale(0.9);
+}
+
+.slider-wrapper .swiper-button-prev{
+    left: 0;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    cursor: pointer;
-    z-index: 100;
-    border: 2px solid #2b2f36; // Randfarbe
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    display: none;
-    transition: 300ms ease-in-out;
-    &:hover{
-            &::before{
-                opacity: 1;
-            }
-    }
 }
 
-.wrapper .arrowleft{
-    transform: rotate(180deg);
-    left:0px;
-    top: 0;
-    &:hover{
-        transform: scale(0.9) rotate(180deg);
-    }
-}
-
-.wrapper .arrowright{
-    right:0px;
-    &:hover{
-        transform: scale(0.9) ;
-    }
-}
 
 @keyframes scrollLeft {
     to{
         left: -200px;
     }
-}
-
-@keyframes scrollLeftclick {
-    to{
-        left: -100%;
-    }
-}
-
-@keyframes scrollRightclick {
-    to{
-        left: 100%;
-    }
-}
-
-@keyframes scrollIconsna {
-    0% { transform: translateX(0%); opacity:0;}
-    0.5% { transform: translateX(0%); opacity:1;}/* Zeige itemna1 */
-    14.2% { transform: translateX(0%); }
-    14.23% { transform: translateX(-30%); }
-    14.25% { transform: translateX(-50%); }
-    14.28% { transform: translateX(-80%); }
-    14.30% { transform: translateX(-100%); } /* Wechsel zu itemna2 */
-    28.50% { transform: translateX(-100%); }
-    28.53% { transform: translateX(-130%); }
-    28.55% { transform: translateX(-150%); }
-    28.58% { transform: translateX(-180%); }
-    28.59% { transform: translateX(-200%); } /* Wechsel zu itemna3 */
-    42.80% { transform: translateX(-200%); }
-    42.82% { transform: translateX(-230%); }
-    42.84% { transform: translateX(-250%); }
-    42.86% { transform: translateX(-280%); }
-    42.88% { transform: translateX(-300%); } /* Wechsel zu itemna4 */
-    57.10% { transform: translateX(-300%); }
-    57.12% { transform: translateX(-330%); }
-    57.14% { transform: translateX(-350%); }
-    57.16% { transform: translateX(-380%); }
-    57.17% { transform: translateX(-400%); } /* Wechsel zu itemna5 */
-    71.40% { transform: translateX(-400%); }
-    71.42% { transform: translateX(-430%); }
-    71.44% { transform: translateX(-450%); }
-    71.46% { transform: translateX(-480%); }
-    71.48% { transform: translateX(-500%); } /* Wechsel zu itemna6 */
-    85.70% { transform: translateX(-500%); }
-    85.72% { transform: translateX(-530%); }
-    85.74% { transform: translateX(-550%); }
-    85.76% { transform: translateX(-580%); }
-    85.78% { transform: translateX(-600%); }
-    99%{transform: translateX(-600%); }  
-    99.95%{transform: translateX(-600%); opacity:1;} /* Wechsel zu itemna7 */
-    100% { transform: translateX(-700%); opacity: 0;}
 }
 
 @keyframes spin {
@@ -482,23 +416,15 @@ h2{
         justify-items: center;
     }
 
-    .wrapper .arrow{
-        display: flex;
-    }
-
-
     .item{
         display: none;
     }
 
-    .itemna{
-        display: flex;
-        
+    .IconBar .swcontainer{
+        display: block;
+        justify-content: center;
     }
 
-    .wrapper .arrow {
-        display: flex; // Pfeile anzeigen
-    }
-
+    
 
 }
