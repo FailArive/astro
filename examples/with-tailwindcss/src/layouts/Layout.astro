@@ -7,7 +7,7 @@ const { content } = Astro.props;
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width; initial-scale=1.0;" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/icons/TRVL.svg" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 		<link rel="stylesheet" href="/src/css/style.scss">
 		<title>TRVL Website</title>
@@ -15,7 +15,11 @@ const { content } = Astro.props;
 	</head>
 	<body class="font-mono pt-30" >		
 		<header class="flex items-center top-0 ">
-			
+	
+			<a href="/">
+				<img src="/icons/TRVL.svg" class="Logo"/>
+			</a>
+
 			<nav class="flex w-full">
 				<NavigationLink />
 			</nav>
