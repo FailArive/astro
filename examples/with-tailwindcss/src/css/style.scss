@@ -33,7 +33,6 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    
     width: 100%;
     max-width: 100vw;
 
@@ -402,6 +401,34 @@ h2{
         --angle: 360deg;
     }
 }
+
+//SHOP-----------------------------------------------------------------------------------------
+
+.search-wrapper{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50rem;
+    gap: .25rem;
+}
+
+input{
+    font-size: 1rem;
+}
+
+.product-list{
+    display: flex;
+    //grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: .25rem;
+    margin-top: 1rem;
+}
+.product{
+    display: flex;
+    cursor: pointer;
+    border: 1px solid white;
+    background-color: #fff;
+    padding: .5rem;
+}
+
 
 @media(max-width: 1023px){
     .right-container{
