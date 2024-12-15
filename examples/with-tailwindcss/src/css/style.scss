@@ -429,7 +429,23 @@ input{
     padding: .5rem;
 }
 
+.button-value{
+    border: 1px solid white;
+    background-color: #fff;
+    padding: 1em 1.3em;
+    border-radius: 3em;
+    gap: .25rem;
+    margin-top: 1rem;
+}
 
+.activeb {
+    background-color: #13161c;
+    color: #fff;
+}
+
+.hide{
+    display: none;
+}
 
 @media(max-width: 1023px){
     .right-container{

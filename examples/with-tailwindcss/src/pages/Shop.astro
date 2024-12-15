@@ -10,27 +10,36 @@ import Layout from "../layouts/Layout.astro"
 		<input type="text" name="" id="search-item" placeholder="Search products" onkeyup="search()">
 	</form>
 
+	<div id="buttons">
+		<button class="button-value" onclick="filterProduct('all')">All</button>
+		<button class="button-value" onclick="filterProduct('FutureBounce')">Future Bounce</button>
+		<button class="button-value" onclick="filterProduct('FutureBass')">Future Bass</button>
+		<button class="button-value" onclick="filterProduct('ProgressiveHouse')">Progressive House</button>
+		<button class="button-value" onclick="filterProduct('TechHouse')">Tech House</button>
+
+	</div>
+
 	<div class="product-list" id="productl">
-		<div class="product">
+		<div class="product hide FutureBass">
 			<!-- image -->
 			 <div class="p-details">
 				<h2>Moin Leute</h2>	
-				<h3></h3>
+				<h3>Future Bass</h3>
 			 </div>
 			
 		</div>
-		<div class="product">
+		<div class="product hide FutureBounce">
 			<!-- image -->
 			<div class="p-details">
 				<h2>Trymacs</h2>	
-				<h3></h3>
+				<h3>Future Bounce</h3>
 			</div>
 		</div>
-		<div class="product">
+		<div class="product hide FutureBass">
 			<!-- image -->
 			<div class="p-details">
 				<h2>hier!</h2>	
-				<h3></h3>
+				<h3>Future Bass</h3>
 			</div>
 		</div>
 		
@@ -45,3 +54,4 @@ import Layout from "../layouts/Layout.astro"
 	
 </Layout>
 <script src="../js/searchfunction.js"></script>
+<script src="../js/filter.js"></script>
